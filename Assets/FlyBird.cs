@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FlyBird : MonoBehaviour
 {
     public GameManager gameManager;
     public float velocity = 1;
     private Rigidbody2D rb;
+
+    public static Action<int> OnBirdDead;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,9 @@ public class FlyBird : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+
+        OnBirdDead?.Invoke(Score.score);
         gameManager.GameOver();
     }
 }

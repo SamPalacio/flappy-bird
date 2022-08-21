@@ -26,14 +26,13 @@ public class LeaderboardManager : MonoBehaviour
 
         transform.GetChild(0).gameObject.SetActive(true);
 
-        List<ScoreItem> myScores = data.scores.ToList();
-        myScores.Sort((a, b) => b.value.CompareTo(a.value));
+        List<UserData> myScores = data.usuarios.ToList();
 
         for (int i = 0; i < scoreItems.transform.childCount; i++)
         {
             if(i< myScores.Count)
             {
-                scoreItems.transform.GetChild(i).GetComponent<TMP_Text>().text = string.Format("{0} {1} {2}",(i+1),myScores[i].userName, myScores[i].value);
+                scoreItems.transform.GetChild(i).GetComponent<TMP_Text>().text = string.Format("{0} {1} {2}",(i+1),myScores[i].username, myScores[i].score);
             }
             else
             {

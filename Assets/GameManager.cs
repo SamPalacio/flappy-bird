@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject gameOverCanvas;
+    public static  GameManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
-    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;

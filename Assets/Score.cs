@@ -8,6 +8,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
+       
         score = 0;
     }
 
